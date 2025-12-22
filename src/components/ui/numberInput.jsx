@@ -8,16 +8,36 @@ function NumberInput() {
 
   let counter = change * 60;
 
+  const finishAudio = new Audio("/bell.mp3");
+
+  let counterInterval;
+
+  function updateCounter() {
+    counter--;
+
+    setChange(counter);
+
+    console.log(counter);
+
+    if (counter === 0) {
+      finishAudio.play();
+
+      clearInterval(counterInterval);
+
+      console.log(counter);     
+    }
+  }
+
   function initCounter() {
     setInit(true);
 
-    setInterval(() => {
-      counter--;
+    counterInterval = setInterval(updateCounter, 1000);
+  }
 
-      setChange(counter);
+  function resetCounter() {
+    counter = change * 60;
 
-      console.log(counter);
-    }, 1000);
+    initCounter();
   }
 
   return (
@@ -43,7 +63,7 @@ function NumberInput() {
           <path d="M10 16.5l6-4.5-6-4.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
         </svg>
       </button>
-      <button type="button" className="border-[2] border-amber-300 rounded">
+      <button type="button" onClick={resetCounter} className="border-[2] border-amber-300 rounded">
         <svg
           className="h-10 w-10"
           height="24px"

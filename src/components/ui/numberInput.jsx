@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import useSound from "use-sound";
 
 function NumberInput() {
@@ -8,10 +8,9 @@ function NumberInput() {
   const [change, setChange] = useState(0);
   const [isInit, setInit] = useState(false);
   const [counterIsPaused, setPause] = useState(false);
+  const counterInterval = useRef(0);
 
   let counter = change * 60;
-
-  let counterInterval;
 
   const [playSound] = useSound("/bell.mp3");
 
@@ -23,7 +22,7 @@ function NumberInput() {
     if (!counter) {
       playSound();
 
-      clearInterval(counterInterval);
+      clearInterval(counterInterval.current);
 
       setInit(false);
     }
@@ -42,18 +41,18 @@ function NumberInput() {
 
     setAuxiliary(counter);
 
-    counterInterval = setInterval(updateCounter, 1000);
+    counterInterval.current = setInterval(updateCounter, 1000);
   }
 
   function pauseCounter() {
     if (!counterIsPaused) {
       setPause(true);
 
-      clearInterval(counterInterval);
+      clearInterval(counterInterval.current);
     } else {
       setPause(false);
 
-      counterInterval = setInterval(updateCounter, 1000);
+      counterInterval.current = setInterval(updateCounter, 1000);
     }
   }
 

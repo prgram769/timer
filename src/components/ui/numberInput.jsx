@@ -10,7 +10,7 @@ function NumberInput() {
   const [counterIsPaused, setPause] = useState(false);
   const counterInterval = useRef(0);
 
-  let counter = change * 60;
+  let counter = change;
 
   const [playSound] = useSound("/bell.mp3");
 
@@ -69,7 +69,7 @@ function NumberInput() {
         <input
           type="number"
           onChange={(e) => {
-            setChange(e.target.value);
+            setChange(e.target.value * 60);
           }}
           className="bg-amber-200 rounded-4xl py-1 w-20 text-black text-center [appearance:textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none]"
         />
@@ -88,7 +88,7 @@ function NumberInput() {
             <path d="M10 16.5l6-4.5-6-4.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
           </svg>
         </button>
-      ) : (
+      ) : !counterIsPaused ? (
         <button
           className="mr-3 border-[2] border-amber-300 rounded"
           type="button"
@@ -108,6 +108,17 @@ function NumberInput() {
                 <path d="M9,16h2V8H9V16z M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8 s3.59-8,8-8s8,3.59,8,8S16.41,20,12,20z M13,16h2V8h-2V16z" />
               </g>
             </g>
+          </svg>
+        </button>
+      ) : (
+        <button
+          type="button"
+          onClick={pauseCounter}
+          className="mr-3 border-[2] border-amber-300 rounded"
+        >
+          <svg viewBox="0 0 24 24" className="h-10 w-10" fill="#F5D97F">
+            <path d="M0 0h24v24H0V0z" fill="none" />
+            <path d="M10 16.5l6-4.5-6-4.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
           </svg>
         </button>
       )}

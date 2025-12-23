@@ -59,6 +59,8 @@ function NumberInput() {
   function resetCounter() {
     counter = auxiliary;
 
+    setPause(false);
+
     initCounter();
   }
 
@@ -81,7 +83,7 @@ function NumberInput() {
         <button
           type="button"
           onClick={initCounter}
-          className="mr-3 border-[2] border-amber-300 rounded"
+          className="mr-3 border-[2] cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
         >
           <svg viewBox="0 0 24 24" className="h-10 w-10" fill="#F5D97F">
             <path d="M0 0h24v24H0V0z" fill="none" />
@@ -90,7 +92,7 @@ function NumberInput() {
         </button>
       ) : !counterIsPaused ? (
         <button
-          className="mr-3 border-[2] border-amber-300 rounded"
+          className="mr-3 border-[2] cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
           type="button"
           onClick={pauseCounter}
         >
@@ -114,7 +116,7 @@ function NumberInput() {
         <button
           type="button"
           onClick={pauseCounter}
-          className="mr-3 border-[2] border-amber-300 rounded"
+          className="mr-3 border-[2] cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
         >
           <svg viewBox="0 0 24 24" className="h-10 w-10" fill="#F5D97F">
             <path d="M0 0h24v24H0V0z" fill="none" />
@@ -122,28 +124,30 @@ function NumberInput() {
           </svg>
         </button>
       )}
-      <button
-        type="button"
-        onClick={resetCounter}
-        className="border-[2] border-amber-300 rounded"
-      >
-        <svg
-          className="h-10 w-10"
-          height="24px"
-          viewBox="0 0 24 24"
-          fill="#F5D97F"
+      {counterIsPaused ? (
+        <button
+          type="button"
+          onClick={resetCounter}
+          className="mr-3 border-[2] cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
         >
-          <g>
-            <rect fill="none" />
-            <rect fill="none" />
-            <rect fill="none" />
-          </g>
-          <g>
-            <g />
-            <path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z" />
-          </g>
-        </svg>
-      </button>
+          <svg
+            className="h-10 w-10"
+            height="24px"
+            viewBox="0 0 24 24"
+            fill="#F5D97F"
+          >
+            <g>
+              <rect fill="none" />
+              <rect fill="none" />
+              <rect fill="none" />
+            </g>
+            <g>
+              <g />
+              <path d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z" />
+            </g>
+          </svg>
+        </button>
+      ) : null}
     </>
   );
 }

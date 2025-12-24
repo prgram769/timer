@@ -25,6 +25,8 @@ function NumberInput() {
       clearInterval(counterInterval.current);
 
       setInit(false);
+
+      setPause(true);
     }
   }
 

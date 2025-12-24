@@ -68,38 +68,38 @@ function NumberInput() {
 
   return (
     <>
-      <h1 className="font-bold text-[40px] pr-3">Minutes:</h1>
+      <h1 className="h1 font-bold text-[40px] pr-3">Minutes:</h1>
       {!isInit ? (
         <input
           type="number"
           onChange={(e) => {
             setChange(e.target.value * 60);
           }}
-          className="bg-amber-200 h-20 w-20 text-[40px] rounded-4xl py-1 text-black text-center [appearance:textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none]"
+          className="inputs bg-amber-200 h-20 w-20 text-[40px] rounded-4xl py-1 text-black text-center [appearance:textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none]"
         />
       ) : null}
-      <h1 className="bg-amber-300 h-20 w-20 flex justify-center items-center text-black rounded-4xl px-2 py-1 m-3 text-[40px]">
+      <h1 className="inputs bg-amber-300 h-20 w-20 flex justify-center items-center text-black rounded-4xl px-2 py-1 m-3 text-[40px]">
         {change}
       </h1>
       {!isInit ? (
         <button
           type="button"
           onClick={initCounter}
-          className="ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
+          className="inputs ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
         >
-          <svg viewBox="0 0 24 24" className="h-20 w-20" fill="#F5D97F">
+          <svg viewBox="0 0 24 24" className="inputs h-20 w-20" fill="#F5D97F">
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M10 16.5l6-4.5-6-4.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
           </svg>
         </button>
       ) : !counterIsPaused ? (
         <button
-          className="ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
+          className="inputs ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
           type="button"
           onClick={pauseCounter}
         >
           <svg
-            className="h-20 w-20"
+            className="inputs h-20 w-20"
             viewBox="0 0 24 24"
             width="24px"
             fill="#F5D97F"
@@ -118,9 +118,9 @@ function NumberInput() {
         <button
           type="button"
           onClick={pauseCounter}
-          className="ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
+          className="inputs ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
         >
-          <svg viewBox="0 0 24 24" className="h-20 w-20" fill="#F5D97F">
+          <svg viewBox="0 0 24 24" className="inputs h-20 w-20" fill="#F5D97F">
             <path d="M0 0h24v24H0V0z" fill="none" />
             <path d="M10 16.5l6-4.5-6-4.5zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
           </svg>
@@ -130,10 +130,10 @@ function NumberInput() {
         <button
           type="button"
           onClick={resetCounter}
-          className="ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
+          className="inputs ml-3 mr-3 border-[2] h-20 w-20 flex justify-center items-center cursor-pointer border-amber-300 rounded transition duration-300 ease-in-out transform hover:-translate-y-1.5 hover:scale-125 active:scale-20"
         >
           <svg
-            className="h-20 w-20"
+            className="inputs h-20 w-20"
             height="24px"
             viewBox="0 0 24 24"
             fill="#F5D97F"
